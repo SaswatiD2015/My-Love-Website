@@ -71,6 +71,25 @@
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
+    /* Next arrow */
+    .next-arrow {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 50px;
+      color: #ff4d6d;
+      cursor: pointer;
+      z-index: 2;
+      transition: transform 0.3s, opacity 0.3s;
+      opacity: 0.8;
+    }
+
+    .next-arrow:hover {
+      transform: translateX(-50%) translateY(-10px);
+      opacity: 1;
+    }
   </style>
 </head>
 <body>
@@ -85,5 +104,10 @@
   <div class="heart" style="left: 50%; animation-delay: 4s;">💘</div>
   <div class="heart" style="left: 70%; animation-delay: 1s;">💕</div>
   <div class="heart" style="left: 90%; animation-delay: 3s;">💞</div>
+
+  <!-- Next Page Arrow -->
+  <a href="poem.html" class="next-arrow">&#x27A1;</a> <!-- Right arrow to Poem page -->
+
+  <!-- &#x27A1; is a right-pointing arrow -->
 </body>
 </html>

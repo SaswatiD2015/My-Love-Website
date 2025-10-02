@@ -92,6 +92,26 @@
     }
     .doodle.heart { top: 10px; right: 15px; color: #ff6b81; }
     .doodle.star { bottom: 10px; left: 15px; color: #f9ca24; }
+
+    .next-arrow, .prev-arrow {
+      position: fixed;
+      bottom: 20px;
+      font-size: 50px;
+      color: #ff4d6d;
+      cursor: pointer;
+      z-index: 10;
+      opacity: 0.8;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    .next-arrow:hover, .prev-arrow:hover {
+      transform: translateY(-10px);
+      opacity: 1;
+    }
+
+    .next-arrow { right: 20px; }
+    .prev-arrow { left: 20px; }
+    
   </style>
 </head>
 <body>
@@ -231,5 +251,7 @@
 
 
   </div>
+  <a href="poem.html" class="prev-arrow">&#x2B05;</a> <!-- Left arrow to Poem page -->
+  <a href="about.html" class="next-arrow">&#x27A1;</a> <!-- Right arrow to About Us page -->
 </body>
 </html>

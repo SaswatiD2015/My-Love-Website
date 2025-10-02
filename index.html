@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Boyfriend Day ❤️</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;600&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+      background: url('images/handholding.jpg') no-repeat center center/cover;
+      font-family: 'Poppins', sans-serif;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Overlay for softer background */
+    body::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.4);
+      z-index: 0;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      padding: 20px;
+      max-width: 800px;
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 60px;
+      margin: 0;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    h2 {
+      font-size: 24px;
+      font-weight: 300;
+      margin-top: 15px;
+      animation: fadeIn 3s ease-in-out;
+    }
+
+    /* Cute floating hearts animation */
+    .heart {
+      position: absolute;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 20px;
+      animation: float 6s linear infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+      50% { opacity: 1; }
+      100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <h1>Happy Boyfriend Day ❤️</h1>
+    <h2>To the Best Boyfriend and Partner Ever 💕</h2>
+  </div>
+
+  <!-- Floating hearts -->
+  <div class="heart" style="left: 10%; animation-delay: 0s;">❤️</div>
+  <div class="heart" style="left: 30%; animation-delay: 2s;">💖</div>
+  <div class="heart" style="left: 50%; animation-delay: 4s;">💘</div>
+  <div class="heart" style="left: 70%; animation-delay: 1s;">💕</div>
+  <div class="heart" style="left: 90%; animation-delay: 3s;">💞</div>
+</body>
+</html>

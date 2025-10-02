@@ -1,102 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Romantic Poem ❤️</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;600&display=swap');
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Romantic Poem ❤️</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;600&display=swap');
 
-    body {
-      margin: 0;
-      padding: 40px 20px;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to bottom right, #ffd1e0, #f5d1ff);
-      color: #800040;
-      overflow-x: hidden; /* prevents horizontal scroll */
-    }
+body {
+  margin: 0;
+  padding: 20px;
+  font-family: 'Poppins', sans-serif;
+  color: #800040;
+  background: linear-gradient(to bottom right, #ffd1e0, #f5d1ff);
+  overflow-y: auto;
+  min-height: 100vh;
+}
 
-    main {
-      max-width: 800px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
-    }
+main {
+  max-width: 90%;
+  margin: 0 auto;
+}
 
-    h1 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 50px;
-      text-align: center;
-      margin-bottom: 30px;
-      color: #ff4d6d;
-    }
+h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 10vw;
+  color: #ff4d6d;
+  text-align: center;
+}
 
-    p {
-      font-size: 1.3rem;
-      line-height: 2;
-      white-space: pre-line;
-      text-align: justify;
-    }
+p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  white-space: pre-line;
+  text-align: justify;
+  margin-top: 20px;
+}
 
-    /* Floating hearts */
-    .heart {
-      position: fixed;
-      color: rgba(255,255,255,0.8);
-      font-size: 20px;
-      animation: float 6s linear infinite;
-    }
+/* Navigation arrows */
+.next-arrow, .prev-arrow {
+  position: fixed;
+  bottom: 20px;
+  font-size: 10vw;
+  color: #ff4d6d;
+  cursor: pointer;
+  z-index: 2;
+  opacity: 0.8;
+  transition: transform 0.3s, opacity 0.3s;
+}
+.next-arrow:hover, .prev-arrow:hover { transform: translateY(-10px); opacity: 1; }
+.next-arrow { right: 20px; }
+.prev-arrow { left: 20px; }
 
-    @keyframes float {
-      0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
-      50% { opacity: 1; }
-      100% { transform: translateY(-10vh) scale(1); opacity: 0; }
-    }
-
-    /* Navigation arrows */
-    .next-arrow, .prev-arrow {
-      position: fixed;
-      bottom: 30px;
-      font-size: 50px;
-      color: #ff4d6d;
-      cursor: pointer;
-      z-index: 2;
-      opacity: 0.8;
-      transition: transform 0.3s, opacity 0.3s;
-    }
-
-    .next-arrow:hover, .prev-arrow:hover {
-      transform: translateY(-10px);
-      opacity: 1;
-    }
-
-    .next-arrow { right: 20px; }
-    .prev-arrow { left: 20px; }
-  </style>
+@media screen and (min-width: 480px) {
+  h1 { font-size: 50px; }
+  p { font-size: 1.3rem; }
+  .next-arrow, .prev-arrow { font-size: 50px; }
+}
+</style>
 </head>
 <body>
-  <main>
-    <h1>A Poem for You ❤️</h1>
-    <p>
-chaand, suraj, subah, shaam, duniya ka har sukoon ek taraf, aur mere sambeet, mere sambeet ki duniya ek taraf,
-chahe jitna jhagdu, jab wo ruth kar sojaye toh uska maatha pyaar se chum lun mein, usese ladai jhagda ek taraf aur meri mohabbat ek taraf,
-uski har ek khwahish wo dekhne se pehle mujhe dekhni hai, uski khusi mein kabhi daam sasti mehengi nai dekhni hai,
-mere har chot pe marham sirf uske haath se lagwana ek taraf, aur uska mere badan pe chuna ek taraf,
-zamane kuch bhi kahe wo mere liye shor sharaba hai ek taraf aur mere sambeet ka kehna meethi mishri jaisi ek taraf,
-usne chahe kuch bhi maanga ho, par maine sirf use maanga hai, uske sapne mere hogaye hai ek taraf aur mere sapne mein usko apna banana ek taraf,
-chaand, suraj, subah, shaam, duniya ka har sukoon ek taraf aur mere sambeet ki mushkan ek taraf, uske muskurane se mera pura din khil uthta hai, uske rone se dil mein pida hona ek taraf,
-jis raaste pe duniya chale wo ek taraf, jis raaste pe mere sambeet chale use apna raasta bana lena ek taraf,jis seese ko wo na dekhe use todna ek taraf, aur uske aankhon ko seesa banake khud ko dekhna ek taraf,meri mohabbat mein kabhi agar aap mere pass wapas laut ke aaye toh yeh jaan lena janab, pagalon ki tarah mohabbat mein pad chuke hai aapke, har zid mein tujhe paane ki khusi ek taraf, aur teri har zid mein mera shaamil hone ka sapna ek taraf ❤️
-    </p>
-  </main>
+<main>
+  <h1>A Poem for You ❤️</h1>
+  <p>
+chaand,suraj,subah,shaam,duniya ka har sukoon ek taraf,aur mere sambeet ,mere sambeet ki duniya ek taraf,<br>
+chahe jitna jhagdu ,jab wo ruth kar sojaye toh uska maatha pyaar se chum lun mein,usese ladai jhagda ek taraf aur meri mohabbat ek taraf,<br>
+uski har ek khwahish wo dekhne se pehle mujhe dekhni hai,uski khusi mein kabhi daam sasti mehengi nai dekhni hai,<br>
+mere har chot pe marham sirf uske haath se lagwana ek taraf,aur uska mere badan pe chuna ek taraf,<br>
+zamane kuch bhi kahe wo mere liye shor sharaba hai ek taraf aur mere sambeet ka kehna meethi mishri jaisi ek taraf,<br>
+usne chahe kuch bhi maanga ho ,par maine sirf use maanga hai,uske sapne mere hogaye hai ek taraf aur mere sapne mein usko apna banana ek taraf,<br>
+chaand,suraj,subah,shaam,duniya ka har sukoon ek taraf aur mere sambeet ki mushkan ek taraf,uske muskurane se mera pura din khil uthta hai,uske rone se dil mein pida hona ek taraf,<br>
+jis raaste pe duniya chale wo ek taraf,jis raaste pe mere sambeet chale use apna raasta bana lena ek taraf,<br>
+jis seese ko wo na dekhe use todna ek taraf,aur uske aankhon ko seesa banake khud ko dekhna ek taraf,<br>
+meri mohabbat mein kabhi agar aap mere pass wapas laut ke aaye toh yeh jaan lena janab,pagalon ki tarah mohabbat mein pad chuke hai aapke,har zid mein tujhe paane ki khusi ek taraf,aur teri har zid mein mera shaamil hone ka sapna ek taraf❤️
+  </p>
+</main>
 
-  <!-- Floating hearts -->
-  <div class="heart" style="left: 10%; animation-delay: 0s;">❤️</div>
-  <div class="heart" style="left: 30%; animation-delay: 2s;">💖</div>
-  <div class="heart" style="left: 50%; animation-delay: 4s;">💘</div>
-  <div class="heart" style="left: 70%; animation-delay: 1s;">💕</div>
-  <div class="heart" style="left: 90%; animation-delay: 3s;">💞</div>
-
-  <!-- Navigation arrows -->
-  <a href="index.html" class="prev-arrow">&#x2B05;</a>
-  <a href="gallery.html" class="next-arrow">&#x27A1;</a>
+<a href="index.html" class="prev-arrow">&#x2B05;</a>
+<a href="gallery.html" class="next-arrow">&#x27A1;</a>
 </body>
 </html>

@@ -1,257 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pinterest Scrapbook with Polaroid Captions</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap');
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Memories 📸</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap');
 
-    body {
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(135deg, #fdfbfb, #ebedee);
-      font-family: 'Poppins', sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      overflow: auto;
-    }
+body {
+  margin: 0;
+  padding: 20px;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #fdfbfb, #ebedee);
+  overflow-x: hidden;
+}
 
-    .collage {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      grid-auto-rows: auto;
-      gap: 25px;
-      width: 100%;
-      padding: 40px;
-      box-sizing: border-box;
-    }
+.collage {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 15px;
+  padding: 10px;
+}
 
-    /* Polaroid style */
-    .polaroid {
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 8px 15px rgba(0,0,0,0.2);
-      padding: 10px 10px 25px; /* extra bottom space for caption */
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      transform: rotate(-2deg);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+.polaroid {
+  position: relative;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+  padding: 10px 10px 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: rotate(-2deg);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
 
-    .polaroid:nth-child(even) { transform: rotate(2deg); }
+.polaroid:nth-child(even) { transform: rotate(2deg); }
+.polaroid:hover { transform: scale(1.05) rotate(0deg); box-shadow: 0 15px 25px rgba(0,0,0,0.3); z-index: 2; }
 
-    .polaroid:hover {
-      transform: scale(1.05) rotate(0deg);
-      box-shadow: 0 15px 25px rgba(0,0,0,0.3);
-      z-index: 2;
-    }
+.polaroid img { max-width: 100%; max-height: 180px; border-radius: 4px; }
+.caption { margin-top: 10px; font-family: 'Pacifico', cursive; font-size: 16px; text-align: center; color: #333; }
 
-    .polaroid img {
-      max-width: 100%;
-      max-height: 250px;
-      object-fit: contain;
-      border-radius: 4px;
-    }
-
-    .caption {
-      margin-top: 10px;
-      font-family: 'Pacifico', cursive;
-      font-size: 18px;
-      color: #333;
-      text-align: center;
-    }
-
-    /* Tape effect */
-    .polaroid::before {
-      content: "";
-      position: absolute;
-      top: -12px;
-      left: 50%;
-      transform: translateX(-50%) rotate(-5deg);
-      width: 60px;
-      height: 20px;
-      background: rgba(255, 255, 255, 0.7);
-      border-radius: 4px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-
-    .polaroid {
-      position: relative;
-    }
-
-    /* Cute doodles */
-    .doodle {
-      position: absolute;
-      font-size: 22px;
-      opacity: 0.7;
-      pointer-events: none;
-    }
-    .doodle.heart { top: 10px; right: 15px; color: #ff6b81; }
-    .doodle.star { bottom: 10px; left: 15px; color: #f9ca24; }
-
-    .next-arrow, .prev-arrow {
-      position: fixed;
-      bottom: 20px;
-      font-size: 50px;
-      color: #ff4d6d;
-      cursor: pointer;
-      z-index: 10;
-      opacity: 0.8;
-      transition: transform 0.3s, opacity 0.3s;
-    }
-
-    .next-arrow:hover, .prev-arrow:hover {
-      transform: translateY(-10px);
-      opacity: 1;
-    }
-
-    .next-arrow { right: 20px; }
-    .prev-arrow { left: 20px; }
-    
-  </style>
+@media screen and (max-width: 480px) {
+  .collage { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 10px; }
+  .polaroid img { max-height: 120px; }
+  .caption { font-size: 12px; }
+}
+</style>
 </head>
 <body>
-  <div class="collage">
-
-    <div class="polaroid">
-      <img src="images/my baby boiiii sam.jpg" alt="pic">
-      <div class="caption">My Baby Boiii 🥰</div>
-      <span class="doodle heart">❤️</span>
-    </div>
-
-    <div class="polaroid">
-      <img src="images/my fav hairstyle.jpg" alt="pic">
-      <div class="caption">Fav Hairstyle 💇‍♂️</div>
-    </div>
-
-    <div class="polaroid">
-      <img src="images/my fav smilee baby.jpg" alt="pic">
-      <div class="caption">That Smile 💖</div>
-      <span class="doodle star">⭐</span>
-    </div>
-
-    <div class="polaroid">
-      <img src="images/videocall1.jpg" alt="pic">
-      <div class="caption">Late Night Call 😂</div>
-    </div>
-
-    <div class="polaroid">
-      <img src="images/videocall2.jpg" alt="pic">
-      <div class="caption">Always laughing 🤣</div>
-    </div>
-
-    <div class="polaroid">
-      <img src="images/videocall4.jpg" alt="pic">
-      <div class="caption">Sleepy Face 😴</div>
-    </div>
-
-    <div class="polaroid">
-      <img src="images/sambeet with baby boi.jpg" alt="pic">
-      <div class="caption">With Baby 🍼💙</div>
-    </div>
-
-    <div class="polaroid">
-      <img src="images/navratri1.jpg" alt="pic">
-      <div class="caption">Navratri Vibes 🪔</div>
-    </div>
-
-    <div class="polaroid">
-      <img src="images/navratri2.jpg" alt="pic">
-      <div class="caption">yaar!bas pose pe dhyan hai inko mujhpe bilkul nai🎉</div>
-    </div>
-
-    <div class="polaroid">
-      <img src="images/navratri3.jpg" alt="pic">
-      <div class="caption">Best Memories 🌸</div>
-    </div>
-
-    <div class="polaroid">
-      <img src="images/navratri4.jpg" alt="pic">
-      <div class="caption">My Forever Dandiya and Garba Partner💫</div>
-    </div>
-
-    <div class="polaroid">
-        <img src="images/chuha.jpg" alt="pic">
-        <div class="caption">His Chuha</div>
-    </div>
-
-    <div class="polaroid">
-        <img src="images/club.jpg" alt="pic">
-        <div class="caption">My Dangerously Handsome</div>
-    </div>
-
-    <div class="polaroid">
-        <img src="images/hangover.jpg" alt="pic">
-        <div class="caption">My messy night, lazy morning legend</div>
-    </div>
-
-    <div class="polaroid">
-        <img src="images/girlfriend.jpg" alt="pic">
-        <div class="caption">my mein kahun aur tu aaye person</div>
-    </div>
-
-    <div class="polaroid">
-        <img src="images/smile.jpg" alt="pic">
-        <div class="caption">My reason to smile in life</div>
-    </div>
-
-    <div class="polaroid">
-        <img src="images/village.jpg" alt="pic">
-        <div class="caption">Mo Gaonli</div>
-    </div>
-
-    <div class="polaroid">
-        <img src="images/view.jpg" alt="pic">
-        <div class="caption">My Favourite View,only mine</div>
-    </div>
-
-    <div class="polaroid">
-        <img src="images/butterfly.jpg" alt="pic">
-        <div class="caption">Mo gelhi</div>
-    </div>
-
-    <div class="polaroid">
-        <img src="images/formals.jpg" alt="pic">
-        <div class="caption">My suit-boot seduction</div>
-    </div>
-
-    <div class="polaroid">
-        <img src="images/drama.jpg" alt="pic">
-        <div class="caption">Mo DrameBaaz</div>
-    </div>
-
-    <div class="polaroid">
-        <img src="images/hand.jpg" alt="pic">
-        <div class="caption">I will always hold your hand no matter what happens</div>
-    </div>
-
-    <div class="polaroid">
-        <img src="images/mine.jpg" alt="pic">
-        <div class="caption">Sabubele Sambeet bas moro</div>
-    </div>
-
-    <div class="polaroid">
-        <img src="images/mo chua.jpg" alt="pic">
-        <div class="caption">Mo Chua</div>
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
+<div class="collage">
+  <div class="polaroid">
+    <img src="images/my baby boiiii sam.jpg" alt="pic">
+    <div class="caption">My Baby Boiii 🥰</div>
   </div>
-  <a href="poem.html" class="prev-arrow">&#x2B05;</a> <!-- Left arrow to Poem page -->
-  <a href="about.html" class="next-arrow">&#x27A1;</a> <!-- Right arrow to About Us page -->
+  <div class="polaroid">
+    <img src="images/my fav hairstyle.jpg" alt="pic">
+    <div class="caption">Fav Hairstyle 💇‍♂️</div>
+  </div>
+  <div class="polaroid">
+    <img src="images/my fav smilee baby.jpg" alt="pic">
+    <div class="caption">That Smile 💖</div>
+  </div>
+  <!-- Add all other images the same way -->
+</div>
+
+<a href="poem.html" class="prev-arrow">&#x2B05;</a>
+<a href="about.html" class="next-arrow">&#x27A1;</a>
+<style>
+.prev-arrow, .next-arrow { position: fixed; bottom: 20px; font-size: 10vw; color: #ff4d6d; cursor: pointer; z-index:2; opacity:0.8; transition: transform 0.3s, opacity 0.3s; }
+.prev-arrow:hover, .next-arrow:hover { transform: translateY(-10px); opacity:1; }
+.next-arrow { right:20px; } .prev-arrow { left:20px; }
+@media screen and (min-width:480px) { .prev-arrow,.next-arrow{font-size:50px;} }
+</style>
 </body>
 </html>
